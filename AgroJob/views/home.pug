@@ -59,7 +59,6 @@ block content
                             | ko&apos;proq ko&apos;rish
                             i.fa.fa-angle-right
                 each data in OpenData
-                    -console.log(data)
                     .col-md-4
                         .product-item
                             .down-content
@@ -79,6 +78,7 @@ block content
                                             p.text-secondary.d-inline-block(style='font-size: 16px') Shtat soni:
                                             p.text-secondary.d-inline-block(style='font-size: 16px')= data.Shtatsoni
                                     strong(title='Location')
+                                        br       
                                         i.fa.fa-map-marker
                                             p.text-secondary.d-inline-block(style='font-size: 16px;font-weight: 600') Toshkent Viloyati
     .best-features
