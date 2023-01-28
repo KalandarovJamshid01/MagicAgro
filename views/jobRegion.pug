@@ -1,0 +1,72 @@
+extends base
+block content
+    .page-heading.about-heading.header-text(style='background-image: url(assets/images/pexels-quang-nguyen-vinh-2131784.jpg)')
+        .container
+            .row
+                .col-md-12
+                    .text-content
+                        h4 Bizning saytimiz orqali o&apos;zingizga mos ish toping
+                        h2 Ishlar
+    .products
+        .container
+            .row
+                .col-md-3
+                    .contact-form
+                        h5(style='margin-bottom: 15px') Hudud bo&apos;yicha izlash
+                        ul
+                            li
+                                a.btn.btn-toolbar(href='/jobs') Respublika
+                            li
+                                a.btn.btn-toolbar(href=`/myregion`) Mening viloyatim
+                            li
+                                a.btn.btn-toolbar(href='/mydistrict') Mening tumanim
+                        br
+                        h5(style='margin-bottom: 15px') Narx bo&apos;yicha izlash
+                        ul
+                            li
+                                a.btn.btn-toolbar(href='#all') 100$ gacha
+                            li
+                                a.btn.btn-toolbar(href='#all') 500$ gacha
+                            li
+                                a.btn.btn-toolbar(href='#all') 1000$ gacha
+                            li
+                                a.btn.btn-toolbar(href='#all') 1000$ dan yuqori
+                .col-md-9
+                    .row
+                        each job in jobs
+                            .col-md-4
+                                .product-item
+                                    a(href=`/${job._id}`)
+                                        img.img-fluid(src=`${job.photo}` alt='okay')
+                                    .down-content
+                                        a(href=`/${job_id}`)
+                                            h4= job.title
+                                        h6= `${job.price} $`
+                                        h4
+                                            small
+                                                i.fa.fa-briefcase(style='font-size: 16px')
+                                                p.text-info.d-inline-block(style='font-size: 16px')= job.type[0].name
+                                                br
+                                                strong
+                                                    i.fa.fa-building(style='font-size: 16px')
+                                                    p.text-info.d-inline-block(style='font-size: 16px; font-weight: 600')= job.district[0].name_uz 
+                                        small
+                                            strong(title='Posted on')
+                                                i.fa.fa-calendar
+                                                p.text-secondary.d-inline-block(style='font-size: 16px')= job.time
+                                            strong(title='Location')
+                                                i.fa.fa-map-marker
+                                                p.text-secondary.d-inline-block(style='font-size: 16px;font-weight: 600')= job.region[0].name_uz
+                .col-md-12
+                    ul.pages
+                        li.active
+                            a(href='#') 1
+                        li
+                            a(href='#') 2
+                        li
+                            a(href='#') 3
+                        li
+                            a(href='#') 4
+                        li
+                            a(href='#')
+                                i.fa.fa-angle-double-right

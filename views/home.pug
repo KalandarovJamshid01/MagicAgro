@@ -1,0 +1,189 @@
+extends base
+block content
+    .banner.header-text
+        .owl-banner.owl-carousel
+            .banner-item-01
+                .text-content
+                    h4 Biz bilan tez ish toping
+                    h2(style='font-size:24px;color:white')
+                        | Qishloq xo&apos;jaligida o&apos;zingiz yashayotgan hududda ishlash
+                        | imkoniyati
+            .banner-item-02
+                .text-content
+                    h4 Bizning sayt ishga joylashish uchun eng yaxshi sayt
+                    h2(style='font-size:24px;color:white') Karyerangizni MagicAgro orqali o&apos;stiring
+            .banner-item-03
+                .text-content
+                    h4 Biz siz uchun ishlaymiz
+                    h2(style='font-size:24px;color:white')
+                        | Bizning yordamimizda qishloq xo&apos;jaligida o&apos;zingizga mos keladigan
+                        | ishni toping
+    .latest-products
+        .container
+            .row
+                .col-md-12
+                    .section-heading
+                        h2 Zo&apos;r Ishlar
+                        a(href='/jobs')
+                            | ko&apos;proq ko&apos;rish
+                            i.fa.fa-angle-right
+                each job in jobs
+                    .col-md-4
+                        .product-item
+                            .down-content
+                                a(href=`/${job._id}`)
+                                    h3= job.title
+                                h6= `${job.price} $`
+                                h4
+                                    small
+                                        i.fa.fa-briefcase(style='font-size: 16px')
+                                        p.text-info.d-inline-block(style='font-size: 16px')= job.type[0].name
+                                        br
+                                        strong
+                                            i.fa.fa-building(style='font-size: 16px')
+                                            p.text-info.d-inline-block(style='font-size: 16px; font-weight: 600')= job.district[0].name_uz 
+                                small
+                                    strong(title='Posted on')
+                                        i.fa.fa-calendar
+                                            p.text-secondary.d-inline-block(style='font-size: 16px')= job.time
+                                    strong(title='Location')
+                                        i.fa.fa-map-marker
+                                            p.text-secondary.d-inline-block(style='font-size: 16px;font-weight: 600')= job.region[0].name_uz
+    .latest-products
+        .container
+            .row
+                .col-md-12
+                    .section-heading
+                        h2 OpenData Ishlari
+                        a(href='/jobs')
+                            | ko&apos;proq ko&apos;rish
+                            i.fa.fa-angle-right
+                each data in OpenData
+                    -console.log(data)
+                    .col-md-4
+                        .product-item
+                            .down-content
+                                a(href=`#`)
+                                    h4= data.OzbekistonRespublikasiQishloqXojaligiVazirligi
+                                h4
+                                    small
+                                        i.fa.fa-briefcase(style='font-size: 16px')
+                                        p.text-info.d-inline-block(style='font-size: 16px')= data.Vakantlavizimi
+                                        br
+                                        strong
+                                            i.fa.fa-building(style='font-size: 16px')
+                                            p.text-info.d-inline-block(style='font-size: 16px; font-weight: 600')= data.Manzili 
+                                small
+                                    strong(title='Posted on')
+                                        i.fa.fa-calendar
+                                            p.text-secondary.d-inline-block(style='font-size: 16px') Shtat soni:
+                                            p.text-secondary.d-inline-block(style='font-size: 16px')= data.Shtatsoni
+                                    strong(title='Location')
+                                        i.fa.fa-map-marker
+                                            p.text-secondary.d-inline-block(style='font-size: 16px;font-weight: 600') Toshkent Viloyati
+    .best-features
+        .container
+            .row
+                .col-md-12
+                    .section-heading
+                        h2 Biz haqimizda
+                .col-md-6
+                    .left-content
+                        p
+                            | Biz qishloq xo&apos;jaligida ish beruvchilar va ish izlovchilarni
+                            | bir-biri bilan birlashishiga yordam beramiz. Siz bizning
+                            | saytimiz orqali tez va oson ish yoki ioshchi topishingiz mumkin.
+                            | O&apos;zbekistonda qishloq xo&apos;jaligidagi birinchi ish izlash
+                            | saytimiz.
+                        ul.featured-list
+                            li
+                            a(href='#') Tez va oson ish topish
+                            li
+                            a(href='#') Tez va oson ishchi topish
+                            li
+                            a(href='#') O&apos;zingizning tumaningizda qishloq xo&apos;jaligida ishlang
+                            li
+                            a(href='#') Yoki, O&apos;zbekistonning xohlagan joyida
+                .col-md-6
+                    .right-image
+                        img(src='assets/images/about-1-570x350.jpg' alt='')
+    .happy-clients
+        .container
+            .row
+                .col-md-12
+                    .section-heading
+                        h2 Foydalanuvchilar fikrlari
+                        a(href='testimonials.html')
+                            | Ko&apos;proq 
+                            i.fa.fa-angle-right
+                .col-md-12
+                    .owl-clients.owl-carousel.text-center
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Jamshid Kalandarov
+                                p.n-m
+                                    em
+                                        | &quot;Sayt haqiqatda juda zo&apos;r qilingan. Men shu oyni ichida
+                                        | 3ta ish topishga ulgurdim&quot;
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Mironshoh Asadov
+                                p.n-m
+                                    em
+                                        | &quot;Platforma jamoasiga rahmat katta. Doimiy bo&apos;lmasa ham
+                                        | yetarlicha ish topishimga yordam berishdi.&quot;
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Abbos G&apos;ulomov
+                                p.n-m
+                                    em
+                                        | &quot;Men bu yil MagicAgroda reklama berganligim sababli,
+                                        | hosilimni hech qanaqa muammosiz yig&apos;ishtirishga
+                                        | erishdim.&quot;
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Jamshid Kalandarov
+                                p.n-m
+                                    em
+                                        | &quot;Sayt haqiqatda juda zo&apos;r qilingan. Men shu oyni ichida
+                                        | 3ta ish topishga ulgurdim&quot;
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Mironshoh Asadov
+                                p.n-m
+                                    em
+                                        | &quot;Platforma jamoasiga rahmat katta. Doimiy bo&apos;lmasa ham
+                                        | yetarlicha ish topishimga yordam berishdi.&quot;
+                        .service-item
+                            .icon
+                                i.fa.fa-user
+                            .down-content
+                                h4 Abbos G&apos;ulomov
+                                p.n-m
+                                    em
+                                        | &quot;Men bu yil MagicAgroda reklama berganligim sababli,
+                                        | hosilimni hech qanaqa muammosiz yig&apos;ishtirishga
+                                        | erishdim.&quot;
+    .call-to-action
+        .container
+            .row
+                .col-md-12
+                    .inner-content
+                        .row
+                            .col-md-8
+                                h4 Savol va takliflaringiz bo&apos;lsa biz bilan bog&apos;laning
+                                p
+                                    | Biz bundan juda xursand bo&apos;lamiz va sizga iloji boricha
+                                    | tezroq javob qaytarishga harakat qilamiz.
+                            .col-lg-4.col-md-6.text-right
+                                a.filled-button(href='/contact') Aloqa

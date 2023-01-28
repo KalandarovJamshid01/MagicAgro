@@ -1,0 +1,79 @@
+extends base
+block content 
+  .page-heading.about-heading.header-text(style='background-image: url(assets/images/pexels-flambo-1112080.jpg)')
+    .container
+      .row
+        .col-md-12
+          .text-content
+            h4 Ish haqida to&apos;liq ma&apos;lumot
+            h2
+              | Ish haqida ma&apos;lumotga ega bo&apos;ling va ish beruvchi bilan
+              | bog&apos;laning
+  .products
+    .container
+      .row
+        .col-md-8.col-sm-8
+          p.lead
+            i.fa.fa-map-marker
+            span.d-inline-block=`${job.region[0].name_uz}`
+            i.fa.fa-calendar.pl-5
+            span.d-inline-block=job.time
+          br
+          br
+          .form-group
+            h4.text-secondary= job.title
+          p.text-secondary(style='font-size:16px; font-weight:500')= job.body
+          br
+          br
+          .table-responsive-xs.table-responsive-sm
+              table.table.align-middle.mb-0.bg-white
+                  thead.bg-light
+                      tr
+                          th Ismi
+                          th Telefon nomeri
+                          th Murojaat vaqti
+                  tbody.table-column
+                      each appliedUser in appliedUsers
+                          tr
+                              td= appliedUser.users[0].name
+                              td= appliedUser.users[0].phone
+                              td= appliedUser.time
+        .col-md-4
+          .section-heading
+            h2 Contact Details
+          .left-content
+            p
+              span Name
+              br
+              strong= job.user[0].name
+            p
+              span Phone
+              br
+              strong
+                a(href='#')= job.user[0].phone
+            p
+              span Email
+              br
+              strong
+                a(href='#')= job.user[0].email
+          .left-content.mt-2
+            .contact-form
+              form.applyForm.form-group
+                button.jobApply.filled-button.btn-block(type='submit' value=`${job._id}`)
+                  | Apply for this job
+                input.userApply.d-none(type="text" value=`${user._id}`)
+            br
+            ul.social-icons.text-center
+              li
+                a(href='#')
+                  i.fa.fa-facebook
+              li
+                a(href='#')
+                  i.fa.fa-envelope
+              li
+                a(href='#')
+                  i.fa.fa-linkedin
+              li
+                a(href='#')
+                  i.fa.fa-behance
+  script(src="assets/js/job.js") 
